@@ -36,7 +36,6 @@ public class WindowUI extends JFrame implements Serializable {
     private TerminalScreen screen;
     public static final int WIDTH = 700;
     public static final int HEIGHT = 800;
-    // Screen buffer dimensions are different than terminal dimensions
     public static final int COLS = 25;
     public static final int ROWS = 24;
     private static final int NAME_LENGTH = 20;
@@ -266,6 +265,7 @@ public class WindowUI extends JFrame implements Serializable {
                 handleInvalidMove(theGame, theGameUI);
             }
         }
+        System.exit(0);
     }
 
     private String[] getOptions(Rogue theGame) {
@@ -446,7 +446,7 @@ public class WindowUI extends JFrame implements Serializable {
         Rogue theGame = new Rogue(new RogueParser("fileLocations.json"));
         WindowUI theGameUI = new WindowUI();
         theGameUI.rogueGame = theGame;
-        theGame.setPlayer(new Player("Judi"));
+        theGame.setPlayer(new Player("Player"));
         message = Rogue.BLANK_OFFSET + "Welcome to my Rogue game";
         theGameUI.updateInventoryDisplay();
         theGameUI.draw(message, theGame.getNextDisplay());
